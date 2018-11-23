@@ -31,7 +31,7 @@ class Link extends Component {
     return (
       <div className="flex mt2 items-start">
         <div className="flex items-center">
-          <span className="gray">{this.props.index + 1}.</span>
+          {/* <span className="gray">{this.props.index + 1}.</span> */}
           {authToken && (
             <Mutation 
               mutation={VOTE_MUTATION} 
@@ -55,7 +55,7 @@ class Link extends Component {
             {this.props.link.description} ({this.props.link.url})
           </div>
           <div className="f6 lh-copy gray">
-            {this.props.link.votes.length} votes | by{' '}
+            {this.props.link.votes.length} like | by{' '}
             {this.props.link.postedBy
               ? this.props.link.postedBy.name
               : 'Unknown'}{' '}

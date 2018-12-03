@@ -63,9 +63,25 @@ async function vote(parent, args, ctx, info) {
   )
 }
 
+// async function getUserInfo(parent, args, ctx, info) {
+//   const { linkId } = args
+//   const userId = getUserId(ctx)
+
+//   return ctx.db.mutation.getUserInfo(
+//     {
+//       data: {
+//         user: { connect: { id: userId } },
+//         link: { connect: { id: linkId } },
+//       },
+//     },
+//     info,
+//   )
+// }
+
 module.exports = {
   post,
   signup,
   login,
-  vote,
+  vote
+  //getUserInfo
 }

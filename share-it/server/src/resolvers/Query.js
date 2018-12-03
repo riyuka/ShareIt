@@ -1,3 +1,7 @@
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { APP_SECRET, getUserId } = require('../utils');
+
 async function feed(parent, args, ctx, info) {
   const { filter, first, skip, orderBy } = args // destructure input arguments
 
@@ -17,6 +21,15 @@ async function feed(parent, args, ctx, info) {
   }
 }
 
+async function userInfo(parent, args, ctx, info) {
+
+  const id = getUserId(ctx)
+  return ctx.db.query.user({ where: { id } }, info)
+
+}
+
+
 module.exports = {
   feed,
+  userInfo
 }

@@ -15,6 +15,19 @@ const POST_MUTATION = gql`
   }
 `
 
+const CREATE_POST = gql`
+  mutation createPost($caption: String!, $imgUrl: String!) {
+    createPost(caption: $caption, imgUrl: $imgUrl) {
+      _id
+      caption
+      imgUrl
+      author {
+        name
+      }
+    }
+  }
+`;
+
 class CreateLink extends Component {
   state = {
     description: '',
@@ -68,4 +81,60 @@ class CreateLink extends Component {
   };
 };
 
-export default CreateLink;
+// class CreatePost extends Component {
+//   state = {
+//     caption: "",
+//     image: null,
+//     imgUrl: null
+//   };
+
+
+//   pickImage = async cb => {
+//     await this.askPermissionsAsync();
+//     let result = await ImagePicker.launchImageLibraryAsync({
+//       allowsEditing: true,
+//       aspect: [4, 3],
+//       base64: true
+//     });
+
+//     if (!result.cancelled) {
+//       this.setState({ image: result.uri });
+
+//       let base64Img = `data:image/jpg;base64,${result.base64}`;
+
+//       //Add your cloud name
+//       let apiUrl = "https://api.cloudinary.com/v1_1/duuyxqnfi/image/upload";
+
+//       let data = {
+//         file: base64Img,
+//         upload_preset: "lhqpcomz"
+//       };
+
+//       fetch(apiUrl, {
+//         body: JSON.stringify(data),
+//         headers: {
+//           "content-type": "application/json"
+//         },
+//         method: "POST"
+//       })
+//         .then(async r => {
+//           let data = await r.json();
+//           console.log(data.secure_url);
+//           let imgUrl = data.secure_url;
+//           cb(this.setState({ imgUrl }));
+//         })
+//         .catch(err => console.log(err));
+//     }
+//   };
+
+//   render() {
+//     const { caption, imgUrl } = this.state;
+//     return (
+//       <Mutation mutation={CREATE_POST}>
+       
+//       </Mutation>
+//     );
+//   }
+// }
+
+export { CreateLink };

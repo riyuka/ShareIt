@@ -5,6 +5,7 @@ function links(parent, args, context, info) {
   return context.db.query.links({ where, orderBy }, info)
 }
 
+
 module.exports = {
-  links,
+  links
 }

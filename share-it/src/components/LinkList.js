@@ -137,12 +137,15 @@ class LinkList extends Component {
 
   _getLinksToRender = data => {
     const isNewPage = this.props.location.pathname.includes('new')
+    const isUserPage = this.props.location.pathname.includes('myaccount')
     if (isNewPage) {
       return data.feed.links
-    }
-    const rankedLinks = data.feed.links.slice()
+    } else if (isUserPage) {
+       return data.feed.links
+    } else {
+    const rankedLinks = data.feed.links.slice(0,10)
     rankedLinks.sort((l1, l2) => l2.votes.length - l1.votes.length)
-    return rankedLinks
+    return rankedLinks } 
   };
 
   _nextPage = data => {
@@ -173,6 +176,7 @@ class LinkList extends Component {
   
           const linksToRender = this._getLinksToRender(data)
           const isNewPage = this.props.location.pathname.includes('new')
+          const isUserPage = this.props.location.pathname.includes('myaccount')
           const pageIndex = this.props.match.params.page
             ? (this.props.match.params.page - 1) * LINKS_PER_PAGE
             : 0
@@ -188,6 +192,16 @@ class LinkList extends Component {
                 />
               ))}
               {isNewPage && (
+                <div className="flex ml4 mv3 gray">
+                  <div className="pointer mr2" onClick={this._previousPage}>
+                    Previous
+                  </div>
+                  <div className="pointer" onClick={() => this._nextPage(data)}>
+                    Next
+                  </div>
+                </div>
+              )}
+              {isUserPage && (
                 <div className="flex ml4 mv3 gray">
                   <div className="pointer mr2" onClick={this._previousPage}>
                     Previous

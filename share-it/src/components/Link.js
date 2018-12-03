@@ -52,7 +52,8 @@ class Link extends Component {
         </div>
         <div className="ml1">
           <div>
-            {this.props.link.description} ({this.props.link.url})
+            <p>{this.props.link.description}</p>
+            <img src={this.props.link.url}/>
           </div>
           <div className="f6 lh-copy gray">
             {this.props.link.votes.length} like | by{' '}

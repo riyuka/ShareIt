@@ -15,7 +15,7 @@ class Header extends Component {
               </Link>
               <div className="ml1">|</div>
               <Link to="/top" className="ml1 no-underline black">
-                Popular
+                Top 10
               </Link>
               <div className="ml1">|</div>
               <Link to="/search" className="ml1 no-underline black">
@@ -33,7 +33,7 @@ class Header extends Component {
             <div className="flex flex-fixed">
             {authToken && (
                 <div className="flex">
-                  <Link to="/myaccout" className="ml1 no-underline black">
+                  <Link to="/myaccount" className="ml1 no-underline black">
                     My account
                   </Link>
                 </div>

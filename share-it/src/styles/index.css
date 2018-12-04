@@ -1,33 +1,105 @@
+html,
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Verdana, Geneva, sans-serif;
-}
-
-input {
-  max-width: 500px;
-}
-
-.gray {
-  color: #828282;
-}
-
-.lightblue {
-  background-color: #8198e4;
-}
-
-/* .background-gray {
-  background-color: rgb(221, 221, 221);
-} */
-
-.f11 {
-  font-size: 11px;
-}
-
-.w85 {
+  margin: auto;
+  height: 100%;
+  overflow-x: hidden;
   width: 85%;
 }
 
-button.button {
-  margin-right: 16px;
+body {
+  font-family: "Raleway", sans-serif;
+  color: #3f3f3f;
+}
+
+/* <Header.js> */
+.headerName {
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #fffbcd;
+  font-size: 3em;
+  padding: 15px 0;
+}
+
+.headerNav {
+  grid-area: nav;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+
+.headerLinks a {
+  text-decoration: none;
+  padding-right: 1.5em;
+  color: #3f3f3f;
+}
+
+.authDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.authLink {
+  text-decoration: none;
+  color: #3f3f3f;
+  padding-left: 15px;
+}
+
+.logout {
+  cursor: pointer;
+}
+/* </Header.js> */
+
+/* <Link.js> */
+.postDiv {
+  width: 350px;
+  display: grid;
+  grid-template-rows: auto 50px;
+  grid-gap: 0.25em;
+  grid-template-areas:
+    "postImage"
+    "postInfo";
+}
+
+.postImg {
+  grid-area: postImage;
+}
+
+.postDescription {
+  font-weight: bold;
+}
+
+.postInfo {
+  grid-area: postInfo;
+  display: flex;
+  flex-direction: column;
+}
+
+.postBar {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.favDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.heart {
+  font-size: 0.85em;
+  color: gray;
+  cursor: pointer;
+}
+
+.postCreated {
+  font-size: 0.75em;
+}
+/* </Link.js> */
+
+input {
+  max-width: 500px;
 }

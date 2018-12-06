@@ -29,15 +29,23 @@ class Link extends Component {
   render() {
     const authToken = localStorage.getItem(AUTH_TOKEN);
     return (
-      <div className="postDiv">
-        <div className="postImg">
-          <img src={this.props.link.url} />
-        </div>
-        <div className="postInfo">
-          <div className="postDescription">{this.props.link.description}</div>
-          <div className="postBar">
+      <div className="card">
+        
+          <img className="card-img-top" src={this.props.link.url} />
+        
+        <div className="card-body">
+          <div className="card-title">{this.props.link.description}</div>
+          <div className="card-text">
             <div className="favDiv">
               <div className="heartDiv">
+
+                <div classNAme="postVotes">
+                 by{" "}
+                {this.props.link.postedBy
+                  ? this.props.link.postedBy.name
+                  : "Unknown"}{" "} | {this.props.link.votes.length} like
+              </div>
+
                 {authToken && (
                   <Mutation
                     mutation={VOTE_MUTATION}
@@ -53,20 +61,17 @@ class Link extends Component {
                     {voteMutation => (
                       <div className="heart" onClick={voteMutation}>
                         <Icon className="material-icons">favorite</Icon>
+                        like
                       </div>
                     )}
                   </Mutation>
                 )}
               </div>
-              <div classNAme="postVotes">
-                {this.props.link.votes.length} like | by{" "}
-                {this.props.link.postedBy
-                  ? this.props.link.postedBy.name
-                  : "Unknown"}{" "}
-              </div>
             </div>
             <div className="postCreated">
+              <small class="text-muted">
               {timeDifferenceForDate(this.props.link.createdAt)}
+              </small>
             </div>
           </div>
         </div>

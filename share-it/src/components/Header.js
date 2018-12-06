@@ -32,7 +32,7 @@ class Header extends Component {
             {authToken && (
               <div className="authLinkDiv">
                 <Link to="/myaccount" className="authLink">
-                  My account
+                  My collection
                 </Link>
               </div>
             )}

@@ -30,28 +30,34 @@ body {
 }
 
 .headerLinks a {
+  font-size: 20px;
   text-decoration: none;
   padding-right: 1.5em;
   color: #3f3f3f;
 }
 
 .authDiv {
+  font-size: 20px;
   display: flex;
   flex-direction: row;
 }
 
 .authLink {
+  font-size: 20px;
   text-decoration: none;
   color: #3f3f3f;
   padding-left: 15px;
 }
 
 .logout {
+  font-size: 20px;
   cursor: pointer;
 }
 /* </Header.js> */
 
 /* <Link.js> */
+
+
 .postDiv {
   width: 350px;
   display: grid;
@@ -60,14 +66,33 @@ body {
   grid-template-areas:
     "postImage"
     "postInfo";
+  border: solid black 1px;
+  margin-bottom: 11px;
+  margin-left: 11px;
+  display: inline-block;
+  
 }
+
+.card-columns {
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.card-columns > .flex:last-child {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 
 .postImg {
   grid-area: postImage;
 }
 
 .postDescription {
+  font-size: 18px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .postInfo {
@@ -89,17 +114,41 @@ body {
   align-items: baseline;
 }
 
+.heartDiv {
+  margin-top: 9px;
+}
+
 .heart {
-  font-size: 0.85em;
+  font-size: 10px;
   color: gray;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 .postCreated {
   font-size: 0.75em;
+  margin-right: 2px;
+  margin-top: 14px;
 }
 /* </Link.js> */
 
-input {
+.ta1 {
   max-width: 500px;
+  height: 300px;
+  margin-bottom: 10px;
+}
+
+.input2 {
+  max-width: 500px;
+  margin-bottom: 10px;
+}
+
+input {
+  margin-bottom: 8px;
+  max-width: 500px;
+}
+
+.footerContainer {
+  height: 50px;
+  justify-content: center;
 }

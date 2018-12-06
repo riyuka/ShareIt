@@ -3,6 +3,8 @@ import Link from './Link';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import { LINKS_PER_PAGE } from '../constants';
+import { CardColumns } from 'reactstrap';
+import { Card } from '@material-ui/core';
 
 export const FEED_QUERY = gql`
   query FeedQuery($first: Int, $skip: Int, $orderBy: LinkOrderByInput) {
@@ -184,13 +186,14 @@ class LinkList extends Component {
           return (
             <Fragment>
               {linksToRender.map((link, index) => (
-                <Link
+                <Link 
                   key={link.id}
                   link={link}
                   index={index + pageIndex}
                   updateStoreAfterVote={this._updateCacheAfterVote}
                 />
               ))}
+
               {isNewPage && (
                 <div className="flex ml4 mv3 gray">
                   <div className="pointer mr2" onClick={this._previousPage}>
@@ -211,7 +214,7 @@ class LinkList extends Component {
                   </div>
                 </div>
               )}
-            </Fragment>
+             </Fragment>
           )
         }}
       </Query>

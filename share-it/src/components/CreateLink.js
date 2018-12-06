@@ -39,19 +39,19 @@ class CreateLink extends Component {
     return (
       <div>
         <div className="flex flex-column mt3">
-          <input
-            className="mb2"
+          <textarea
+            className="ta1"
             value={description}
             onChange={e => this.setState({ description: e.target.value })}
             type="text"
-            placeholder="A description for the link"
+            placeholder="A description for the post"
           />
           <input
-            className="mb2"
+            className="input2"
             value={url}
             onChange={e => this.setState({ url: e.target.value })}
             type="text"
-            placeholder="The URL for the link"
+            placeholder="The img URL for the post"
           />
         </div>
         <Mutation

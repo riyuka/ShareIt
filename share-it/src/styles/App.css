@@ -1,4 +1,5 @@
 .appSite {
+  position: relative;
   height: 100vh;
   min-height: 0; /* NEW */
   min-width: 0;

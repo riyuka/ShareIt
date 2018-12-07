@@ -6,7 +6,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Search from "./Search";
 import MyAccount from "./MyAccount";
-import Footer from  "./Footer";
+
 
 class App extends Component {
   render() {
@@ -32,7 +32,6 @@ class App extends Component {
             
           </Switch>
         </div>
-        <Footer />
       </div>
      
     );
